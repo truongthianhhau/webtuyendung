@@ -1,3 +1,4 @@
+
 <?php 
     require_once './connect.php';
 
@@ -54,4 +55,5 @@ if(isset($_POST['post_job'])){
     echo '<script> alert("Đăng bài thành công") </script>';
     echo '<script> window.location="../post-job.html" </script>';
 }
+
 
