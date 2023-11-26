@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php 
     require_once './connect.php';
 
@@ -55,4 +56,3 @@ if(isset($_POST['post_job'])){
     echo '<script> window.location="../post-job.html" </script>';
 }
 
-?>
