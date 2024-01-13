@@ -1,4 +1,3 @@
-
 <?php 
     require_once './connect.php';
 
@@ -11,12 +10,14 @@ if(isset($_POST['post_job'])){
     $job_desc = $_POST['post_job_desc'];
     $post_company_name = $_POST['post_company_name'];
     // $post_company_file = $_POST['post_company_file'];
-    $post_company_linkedin = $_POST['post_company_linkedin'];
-    $post_company_tw = $_POST['post_company_tw'];
-    $post_company_facebook = $_POST['post_company_facebook'];
-    $post_company_website = $_POST['post_company_website'];
-    $post_company_desc = $_POST['post_company_desc'];
-    $post_company_tagline = $_POST['post_company_tagline'];
+    $gender = $_POST['post_job_gender'];
+    $benefits = $_POST['post_job_other_benifits'];
+    $education = $_POST['post_job_education'];
+    $publishedon = $_POST['post_job_publishedon'];
+    $responsibilities = $_POST['post_job_responsibilities'];
+    $experience = $_POST['post_job_experience'];
+    $salary = $_POST['post_job_salary'];
+    $application_deadline = $_POST['post_job_application_deadline'];
 
     // Get
     $filename = $_FILES['post_company_file']['name'];
@@ -49,7 +50,8 @@ if(isset($_POST['post_job'])){
         echo "Failed to upload your image.";
     }
     
-    $add_job = "INSERT INTO job (UploadFeaturedImage, CompanyID ,JobTitle, JobRegion, job_description, location, email, JobType,CompanyName,Tagline,CompanyDescription, Website, FacebookUsername, TwitterUsername, LinkedinUsername, UploadLogo) VALUES('$imagename', '1', '$title', '$region', '$job_desc', '$location', '$email', '$type','$post_company_name', '$post_company_tagline', '$post_company_desc', '$post_company_website', '$post_company_facebook', '$post_company_tw', '$post_company_linkedin', '$filename')";
+    $add_job = "INSERT INTO job (UploadFeaturedImage, JobTitle, JobRegion, Gender, JobType, education, other_benifits, publishedon, Responsibilities, experience, salary, application_deadline, email, location, job_description, CompanyName, UploadLogo)     VALUES('$imagename','$title', '$region', '$gender', '$type', '$education', '$benefits', '$publishedon','$responsibilities', '$experience', '$salary', '$application_deadline', '$email', '$location', '$job_desc','$post_company_name', '$filename')";
+
     $conn->query($add_job);
 
     echo '<script> alert("Đăng bài thành công") </script>';
